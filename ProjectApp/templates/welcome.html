@@ -1,0 +1,84 @@
+{% extends "basic_layout.html" %}
+{% block content %}
+
+<h2>WELCOME TO OUR LIBRARY!</h2>
+
+
+    <!--form action="{{ url_for('welcome') }}" method="POST">
+        <table>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="email" name="email">
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input type="number" name="password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Sign In">
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </form-->
+     <form action="{{ url_for('welcome') }}" method="POST">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Sign In</legend>
+                <div class="form-group">
+                    <div class="form-control-label">
+                        Email
+                    </div>
+                        <input class="form-control form-control-lg" type="email" name="email">
+                </div>
+                <div class="form-group">
+                    <div class="form-control-label">
+                        Password
+                    </div>
+                        <input class="form-control form-control-lg" type="password" name="password">
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Sign In">
+                </div>
+        </fieldset>
+    </form>
+
+
+
+<h3 >Our Policy:</h3>
+  <ul class="list-group">
+  <li class="list-group-item">The maximum of books that reader can borrow at the same time is 3</li>
+  <li class="list-group-item">The borrowing time is 14 days</li>
+  <li class="list-group-item">The reader can request to extend the time for a week</li>
+   <li class="list-group-item">Be nice to the librarian</li>
+
+</ul>
+
+<div class="container-fluid bg-3 text-center">
+  <h3 class="margin">Our Bestseller :</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <p>Harry Potter and the Philosopher's Stone is a 1997 fantasy novel written by British author J. K. Rowling..</p>
+      <img src="https://m.media-amazon.com/images/I/51HSkTKlauL._AC_SY780_.jpg" class="img-responsive margin"  alt="bestseller">
+    </div>
+    <div class="col-sm-4">
+      <p>Thinking, Fast and Slow is a 2011 book by Israeli-American psychologist Daniel Kahneman..</p>
+      <img src="https://storage.googleapis.com/du-prd/books/images/9781429969352.jpg"  class="img-responsive margin"  alt="joke">
+    </div>
+    <div class="col-sm-4">
+      <p>The Forgotten is a thriller novel written by American author David Baldacci. .</p>
+      <img src="https://www.davidbaldacci.com/wp-content/uploads/2017/06/9781455523153.jpg" class="img-responsive margin"  alt="try2">
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock content %}
+
+

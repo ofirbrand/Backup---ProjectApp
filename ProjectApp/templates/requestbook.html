@@ -1,0 +1,67 @@
+{% extends "reader_layout.html" %}
+{% block content %}
+
+<button type="button" class="btn btn-secondary">return to search</button>
+<legend class="headline">Search Results:</legend>
+    {% for book in books %}
+        {% if book[5] > 0 %}
+            <form class="form-inline" action="{{ url_for('requestbook') }}" method="POST">
+              <div class="container">
+                    <article class="media content-section">
+                      <div class="media-body">
+                        <h2>{{ book[0] }}</h2>
+                        <p class="article-content">
+                          <ul>
+                            <li>
+                              <input type="hidden" name="copy_id" value="{{ book[7] }}">
+                              Author Name: {{ book[1] }}
+                            </li>
+                            <li>
+                              Branch Name: {{ book[2] }}
+                            </li>
+                            <li>
+                              Phone Number Branch: {{ book[4] }}
+                            </li>
+                            <li>
+                              Stock: {{ book[5] }}
+                            </li>
+                            <input class="btn btn-primary active" type="submit" value="Borrow" name="action">
+                          </ul>
+                        </p>
+                      </div>
+                    </article>
+                </div>
+            </form>
+          {% else %}
+            <form class="form-inline" action="{{ url_for('requestbook') }}" method="POST">
+                <div class="container">
+                        <article class="media content-section">
+                          <div class="media-body">
+                            <h2><a class="article-title" href="#">{{ book[0] }}</a></h2>
+                            <p class="article-content">
+                              <ul>
+                                <li>
+                                  Author Name: {{ book[1] }}
+                                </li>
+                                <li>
+                                  Branch Name: {{ book[2] }}
+                                </li>
+                            <li>
+                                  Phone Number Branch:
+                                </li>
+                            <li>
+                                  Address Branch: {{ book[4] }}
+                                </li>
+                            <li>
+                                  Stock: {{ book[6] }}
+                                </li>
+                                <input class="btn btn-primary active" type="submit" value="Order" name="action">
+                              </ul>
+                            </p>
+                          </div>
+                        </article>
+                    </div>
+            </form>
+          {% endif %}
+    {% endfor %}
+{% endblock %}
